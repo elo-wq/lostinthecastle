@@ -172,7 +172,9 @@ body{
     transform:translateX(-50%);
 }
 
+/* ========================= */
 /* CD EN BAS À DROITE */
+/* ========================= */
 
 .link-image{
     position:fixed;
@@ -181,11 +183,46 @@ body{
     width:150px;
     height:auto;
     z-index:100;
+    cursor:pointer;
     transition:transform 0.2s;
 }
 
 .link-image:hover{
     transform:scale(1.08);
+}
+
+
+/* ========================= */
+/* IMAGE OUVERTE AU CENTRE */
+/* ========================= */
+
+.image-popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+
+    background:rgba(0,0,0,0.8);
+
+    display:none;
+    justify-content:center;
+    align-items:center;
+
+    z-index:200;
+
+    cursor:pointer;
+}
+
+.image-popup img{
+    max-width:40vw;
+    max-height:40vh;
+    width:auto;
+    height:auto;
+
+    object-fit:contain;
+
+    cursor:default;
 }
 
 
@@ -268,6 +305,14 @@ body{
         right:10px;
         bottom:10px;
     }
+
+    /* IMAGE POPUP SUR TÉLÉPHONE */
+
+    .image-popup img{
+        max-width:90vw;
+        max-height:80vh;
+    }
+
 }
 
 </style>
@@ -280,7 +325,9 @@ body{
 
 <div class="scene">
 
+    <!-- ========================= -->
     <!-- CENTRE -->
+    <!-- ========================= -->
 
     <div class="center">
 
@@ -314,66 +361,106 @@ body{
     </div>
 
 
+    <!-- ========================= -->
     <!-- IMAGE 1 -->
+    <!-- ========================= -->
 
     <div class="image-container img1">
+
         <img src="image.png" class="image">
+
         <div class="music-title">
             will i break you
         </div>
+
     </div>
 
 
+    <!-- ========================= -->
     <!-- IMAGE 2 -->
+    <!-- ========================= -->
 
     <div class="image-container img2">
+
         <img src="zz.png" class="image">
+
         <div class="music-title">
             dance now
         </div>
+
     </div>
 
 
+    <!-- ========================= -->
     <!-- IMAGE 3 -->
+    <!-- ========================= -->
 
     <div class="image-container img3">
+
         <img src="image3.png" class="image">
+
         <div class="music-title">
             up in the tower
         </div>
+
     </div>
 
 
+    <!-- ========================= -->
     <!-- IMAGE 4 -->
+    <!-- ========================= -->
 
     <div class="image-container img4">
+
         <img src="image4.jpg" class="image">
+
         <div class="music-title">
             surrender
         </div>
+
     </div>
 
 
+    <!-- ========================= -->
     <!-- IMAGE 5 -->
+    <!-- ========================= -->
 
     <div class="image-container img5">
+
         <img src="image5.jpg" class="image">
+
         <div class="music-title">
             lost in the castle
         </div>
+
     </div>
 
 
-    <!-- CD / LIEN SOUNDCLOUD -->
+    <!-- ========================= -->
+    <!-- CD -->
+    <!-- ========================= -->
 
-    <a href=""
-       target="_blank">
+    <img
+        src="cd1.png"
+        class="link-image"
+        alt="Music"
+        id="cdButton"
+    >
 
-        <img src="cd1.png"
-             class="link-image"
-             alt="Music">
 
-    </a>
+    <!-- ========================= -->
+    <!-- IMAGE QUI S'OUVRE -->
+    <!-- ========================= -->
+
+    <div class="image-popup" id="imagePopup">
+
+        <img
+            src="ouvrir1.png"
+            alt="Image"
+            id="popupImage"
+        >
+
+    </div>
 
 </div>
 
@@ -404,20 +491,16 @@ containers.forEach(container => {
         offsetX = e.clientX - rect.left;
         offsetY = e.clientY - rect.top;
 
-        /* Passage en coordonnées left/top */
-
         container.style.left = rect.left + "px";
         container.style.top = rect.top + "px";
 
         container.style.right = "auto";
         container.style.bottom = "auto";
 
-        /* Retirer le transform du dernier élément
-           pour permettre un déplacement libre */
-
         container.style.transform = "none";
 
     });
+
 
     container.addEventListener("pointermove", function(e){
 
@@ -431,11 +514,13 @@ containers.forEach(container => {
 
     });
 
+
     container.addEventListener("pointerup", function(){
 
         dragging = false;
 
     });
+
 
     container.addEventListener("pointercancel", function(){
 
@@ -445,7 +530,56 @@ containers.forEach(container => {
 
 });
 
+
+/* ========================= */
+/* CD → OUVERTURE DE L'IMAGE */
+/* ========================= */
+
+const cdButton = document.getElementById("cdButton");
+
+const imagePopup = document.getElementById("imagePopup");
+
+const popupImage = document.getElementById("popupImage");
+
+
+cdButton.addEventListener("click", function(){
+
+    imagePopup.style.display = "flex";
+
+});
+
+
+/* ========================= */
+/* FERMER EN CLIQUANT AUTOUR */
+/* ========================= */
+
+imagePopup.addEventListener("click", function(e){
+
+    if(e.target === imagePopup){
+
+        imagePopup.style.display = "none";
+
+    }
+
+});
+
+
+/* ========================= */
+/* ÉCHAP POUR FERMER */
+/* ========================= */
+
+document.addEventListener("keydown", function(e){
+
+    if(e.key === "Escape"){
+
+        imagePopup.style.display = "none";
+
+    }
+
+});
+
 </script>
 
 </body>
 </html>
+
