@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Avatar</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html, body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    background:black;
+    color:white;
+    font-family:"Old English Text MT", "UnifrakturCook", "UnifrakturMaguntia", serif;
+}
+
+/* GIF DE FOND */
+
+.fond-gif{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+    opacity:0.5;
+    pointer-events:none;
+    z-index:0;
+}
+
+/* SCÈNE */
+
+.scene{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    z-index:1;
+}
+
+/* CENTRE */
+
+.center{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:350px;
+    text-align:center;
+    z-index:3;
+}
+
+.center-gif{
+    display:block;
+    width:350px;
+    max-width:100%;
+    height:auto;
+    margin:auto;
+}
+
+.info{
+    margin-top:10px;
+    font-size:17px;
+    line-height:1.4;
+}
+
+/* PLATEFORMES */
+
+.platforms{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    margin-top:15px;
+}
+
+.platform{
+    width:38px;
+    height:38px;
+    object-fit:contain;
+    transition:transform 0.2s;
+}
+
+.platform:hover{
+    transform:scale(1.15);
+}
+
+/* IMAGES DÉPLAÇABLES */
+
+.image-container{
+    position:absolute;
+    width:180px;
+    z-index:5;
+    cursor:grab;
+    user-select:none;
+    -webkit-user-select:none;
+    touch-action:none;
+}
+
+.image-container:active{
+    cursor:grabbing;
+}
+
+.image{
+    display:block;
+    width:180px;
+    height:auto;
+    opacity:0.8;
+    transition:opacity 0.2s;
+    pointer-events:none;
+}
+
+.image-container:hover .image{
+    opacity:1;
+}
+
+/* TITRES SOUS LES IMAGES */
+
+.music-title{
+    width:100%;
+    margin-top:8px;
+    text-align:center;
+    color:white;
+    font-size:16px;
+    line-height:1.2;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.2s;
+}
+
+.image-container:hover .music-title{
+    opacity:1;
+}
+
+/* POSITIONS ORDINATEUR */
+
+.img1{
+    top:8%;
+    left:12%;
+}
+
+.img2{
+    top:12%;
+    right:12%;
+}
+
+.img3{
+    top:50%;
+    left:5%;
+}
+
+.img4{
+    top:50%;
+    right:15%;
+}
+
+.img5{
+    bottom:7%;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+/* CD EN BAS À DROITE */
+
+.link-image{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:150px;
+    height:auto;
+    z-index:100;
+    transition:transform 0.2s;
+}
+
+.link-image:hover{
+    transform:scale(1.08);
+}
+
+
+/* ========================= */
+/* VERSION TÉLÉPHONE */
+/* ========================= */
+
+@media (max-width:600px){
+
+    .center{
+        width:220px;
+    }
+
+    .center-gif{
+        width:220px;
+    }
+
+    .info{
+        font-size:14px;
+        margin-top:7px;
+    }
+
+    .platforms{
+        gap:10px;
+        margin-top:12px;
+    }
+
+    .platform{
+        width:28px;
+        height:28px;
+    }
+
+    /* IMAGES PLUS PETITES */
+
+    .image-container{
+        width:100px;
+    }
+
+    .image{
+        width:100px;
+    }
+
+    .music-title{
+        font-size:12px;
+        margin-top:5px;
+    }
+
+    /* POSITIONS TÉLÉPHONE */
+
+    .img1{
+        top:7%;
+        left:4%;
+    }
+
+    .img2{
+        top:10%;
+        right:4%;
+    }
+
+    .img3{
+        top:43%;
+        left:3%;
+    }
+
+    .img4{
+        top:47%;
+        right:4%;
+    }
+
+    .img5{
+        bottom:10%;
+        left:50%;
+        transform:translateX(-50%);
+    }
+
+    /* CD */
+
+    .link-image{
+        width:90px;
+        right:10px;
+        bottom:10px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<img src="star.gif" class="fond-gif">
+
+<div class="scene">
+
+    <!-- CENTRE -->
+
+    <div class="center">
+
+        <img src="text(1).gif" class="center-gif">
+
+        <div class="info">
+            par Elia<br>
+            Released 1er octobre 2026
+        </div>
+
+        <div class="platforms">
+
+            <a href="TON-LIEN-DEEZER" target="_blank">
+                <img src="deezer.png" class="platform">
+            </a>
+
+            <a href="TON-LIEN-SPOTIFY" target="_blank">
+                <img src="spo.png" class="platform">
+            </a>
+
+            <a href="TON-LIEN-YOUTUBE" target="_blank">
+                <img src="youtube.png" class="platform">
+            </a>
+
+            <a href="TON-LIEN-BANDCAMP" target="_blank">
+                <img src="bc.png" class="platform">
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- IMAGE 1 -->
+
+    <div class="image-container img1">
+        <img src="image.png" class="image">
+        <div class="music-title">
+            will i break you
+        </div>
+    </div>
+
+
+    <!-- IMAGE 2 -->
+
+    <div class="image-container img2">
+        <img src="zz.png" class="image">
+        <div class="music-title">
+            dance now
+        </div>
+    </div>
+
+
+    <!-- IMAGE 3 -->
+
+    <div class="image-container img3">
+        <img src="image3.png" class="image">
+        <div class="music-title">
+            up in the tower
+        </div>
+    </div>
+
+
+    <!-- IMAGE 4 -->
+
+    <div class="image-container img4">
+        <img src="image4.jpg" class="image">
+        <div class="music-title">
+            surrender
+        </div>
+    </div>
+
+
+    <!-- IMAGE 5 -->
+
+    <div class="image-container img5">
+        <img src="image5.jpg" class="image">
+        <div class="music-title">
+            lost in the castle
+        </div>
+    </div>
+
+
+    <!-- CD / LIEN SOUNDCLOUD -->
+
+    <a href=""
+       target="_blank">
+
+        <img src="cd1.png"
+             class="link-image"
+             alt="Music">
+
+    </a>
+
+</div>
+
+
+<script>
+
+/* ========================= */
+/* IMAGES DÉPLAÇABLES */
+/* SOURIS + TÉLÉPHONE */
+/* ========================= */
+
+const containers = document.querySelectorAll(".image-container");
+
+containers.forEach(container => {
+
+    let offsetX = 0;
+    let offsetY = 0;
+    let dragging = false;
+
+    container.addEventListener("pointerdown", function(e){
+
+        dragging = true;
+
+        container.setPointerCapture(e.pointerId);
+
+        const rect = container.getBoundingClientRect();
+
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
+
+        /* Passage en coordonnées left/top */
+
+        container.style.left = rect.left + "px";
+        container.style.top = rect.top + "px";
+
+        container.style.right = "auto";
+        container.style.bottom = "auto";
+
+        /* Retirer le transform du dernier élément
+           pour permettre un déplacement libre */
+
+        container.style.transform = "none";
+
+    });
+
+    container.addEventListener("pointermove", function(e){
+
+        if(!dragging) return;
+
+        container.style.left =
+            (e.clientX - offsetX) + "px";
+
+        container.style.top =
+            (e.clientY - offsetY) + "px";
+
+    });
+
+    container.addEventListener("pointerup", function(){
+
+        dragging = false;
+
+    });
+
+    container.addEventListener("pointercancel", function(){
+
+        dragging = false;
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
