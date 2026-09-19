@@ -26,7 +26,7 @@ body{
     font-family:"Old English Text MT", "UnifrakturCook", "UnifrakturMaguntia", serif;
 }
 
-/* GIF DE FOND */
+
 
 .fond-gif{
     position:fixed;
@@ -40,7 +40,6 @@ body{
     z-index:0;
 }
 
-/* SCÈNE */
 
 .scene{
     position:relative;
@@ -50,7 +49,7 @@ body{
     z-index:1;
 }
 
-/* CENTRE */
+
 
 .center{
     position:absolute;
@@ -76,7 +75,6 @@ body{
     line-height:1.4;
 }
 
-/* PLATEFORMES */
 
 .platforms{
     display:flex;
@@ -97,7 +95,7 @@ body{
     transform:scale(1.15);
 }
 
-/* IMAGES DÉPLAÇABLES */
+
 
 .image-container{
     position:absolute;
@@ -126,7 +124,6 @@ body{
     opacity:1;
 }
 
-/* TITRES SOUS LES IMAGES */
 
 .music-title{
     width:100%;
@@ -144,7 +141,7 @@ body{
     opacity:1;
 }
 
-/* POSITIONS ORDINATEUR */
+
 
 .img1{
     top:8%;
@@ -172,9 +169,7 @@ body{
     transform:translateX(-50%);
 }
 
-/* ========================= */
-/* CD EN BAS À DROITE */
-/* ========================= */
+
 
 .link-image{
     position:fixed;
@@ -192,9 +187,6 @@ body{
 }
 
 
-/* ========================= */
-/* IMAGE OUVERTE AU CENTRE */
-/* ========================= */
 
 .image-popup{
     position:fixed;
@@ -226,9 +218,6 @@ body{
 }
 
 
-/* ========================= */
-/* VERSION TÉLÉPHONE */
-/* ========================= */
 
 @media (max-width:600px){
 
@@ -255,7 +244,7 @@ body{
         height:28px;
     }
 
-    /* IMAGES PLUS PETITES */
+
 
     .image-container{
         width:100px;
@@ -270,7 +259,7 @@ body{
         margin-top:5px;
     }
 
-    /* POSITIONS TÉLÉPHONE */
+
 
     .img1{
         top:7%;
@@ -306,7 +295,6 @@ body{
         bottom:10px;
     }
 
-    /* IMAGE POPUP SUR TÉLÉPHONE */
 
     .image-popup img{
         max-width:90vw;
@@ -325,10 +313,6 @@ body{
 
 <div class="scene">
 
-    <!-- ========================= -->
-    <!-- CENTRE -->
-    <!-- ========================= -->
-
     <div class="center">
 
         <img src="text(1).gif" class="center-gif">
@@ -340,15 +324,15 @@ body{
 
         <div class="platforms">
 
-            <a href="TON-LIEN-DEEZER" target="_blank">
+            <a href="" target="_blank">
                 <img src="deezer.png" class="platform">
             </a>
 
-            <a href="TON-LIEN-SPOTIFY" target="_blank">
+            <a href="" target="_blank">
                 <img src="spo.png" class="platform">
             </a>
 
-            <a href="TON-LIEN-YOUTUBE" target="_blank">
+            <a href="https://www.youtube.com/@eliamusique" target="_blank">
                 <img src="youtube.png" class="platform">
             </a>
 
@@ -361,9 +345,7 @@ body{
     </div>
 
 
-    <!-- ========================= -->
-    <!-- IMAGE 1 -->
-    <!-- ========================= -->
+
 
     <div class="image-container img1">
 
@@ -376,9 +358,6 @@ body{
     </div>
 
 
-    <!-- ========================= -->
-    <!-- IMAGE 2 -->
-    <!-- ========================= -->
 
     <div class="image-container img2">
 
@@ -391,10 +370,6 @@ body{
     </div>
 
 
-    <!-- ========================= -->
-    <!-- IMAGE 3 -->
-    <!-- ========================= -->
-
     <div class="image-container img3">
 
         <img src="image3.png" class="image">
@@ -406,9 +381,7 @@ body{
     </div>
 
 
-    <!-- ========================= -->
-    <!-- IMAGE 4 -->
-    <!-- ========================= -->
+
 
     <div class="image-container img4">
 
@@ -421,9 +394,7 @@ body{
     </div>
 
 
-    <!-- ========================= -->
-    <!-- IMAGE 5 -->
-    <!-- ========================= -->
+
 
     <div class="image-container img5">
 
@@ -436,9 +407,6 @@ body{
     </div>
 
 
-    <!-- ========================= -->
-    <!-- CD -->
-    <!-- ========================= -->
 
     <img
         src="cd1.png"
@@ -448,9 +416,7 @@ body{
     >
 
 
-    <!-- ========================= -->
-    <!-- IMAGE QUI S'OUVRE -->
-    <!-- ========================= -->
+ 
 
     <div class="image-popup" id="imagePopup">
 
@@ -467,10 +433,6 @@ body{
 
 <script>
 
-/* ========================= */
-/* IMAGES DÉPLAÇABLES */
-/* SOURIS + TÉLÉPHONE */
-/* ========================= */
 
 const containers = document.querySelectorAll(".image-container");
 
